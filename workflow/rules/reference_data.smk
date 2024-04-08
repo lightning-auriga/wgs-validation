@@ -61,7 +61,7 @@ rule acquire_confident_regions:
         mem_mb=config_resources["default"]["memory"],
     shell:
         "if [[ {params.source} = s3://* ]] ; then "
-        "aws s3 cp {input} {output.tmp} ; "
+        "aws s3 cp {params.source} {output.tmp} ; "
         "elif [[ {params.source} = ftp://* ]] || [[ {params.source} = https://* ]] || [[ {params.source} = http://* ]] ; then "
         "wget -O {output.tmp} {params.source} ; "
         "else cp {params.source} {output.tmp} ; fi && "
