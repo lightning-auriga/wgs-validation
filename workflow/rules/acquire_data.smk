@@ -19,7 +19,7 @@ rule download_reference_data:
         mem_mb=config_resources["default"]["memory"],
     shell:
         "if [[ {params} = s3://* ]] ; then "
-        "aws s3 cp {input} {output} ; "
+        "aws s3 cp {params} {output} ; "
         "elif [[ {params} = ftp://* ]] || [[ {params} = https://* ]] || [[ {params} = http://* ]] ; then "
         "wget -O {output} {params} ; "
         "else cp {params} {output} ; fi"
