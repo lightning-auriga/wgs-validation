@@ -1,8 +1,8 @@
 partitions:
   small:
-    - "small"
+    - "spotshort"
   large:
-    - "large"
+    - "hpc"
 
 tmpdir: "temp"
 
@@ -18,30 +18,30 @@ bcftools:
 
 happy:
   threads: 4
-  memory: 64000
-  partition: "small"
+  memory: 16000
+  partition: "large"
 
 r:
   threads: 1
-  memory: 4000
+  memory: 3500
   partition: "small"
 
 rtg-vcfeval:
   threads: 1
   memory: 16000
-  partition: "small"
+  partition: "large"
 
 svanalyzer:
   threads: 1
   memory: 8000
-  partition: "small"
+  partition: "large"
 
 svdb:
   threads: 1
   memory: 8000
-  partition: "small"
+  partition: "large"
 
 truvari:
   threads: 1
   memory: 24000
-  partition: "small"
+  partition: "large"
