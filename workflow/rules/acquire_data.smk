@@ -69,5 +69,11 @@ rule download_experimental_data:
         ],
     output:
         temp("results/experimentals/{experimental}/{index}.vcf.gz"),
+    threads: config_resources["default"]["threads"]
+    resources:
+        slurm_partition=rc.select_partition(
+            config_resources["default"]["partition"], config_resources["partitions"]
+        ),
+        mem_mb=config_resources["default"]["memory"],
     shell:
         "cp {input} {output}"

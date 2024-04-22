@@ -38,6 +38,12 @@ rule get_stratification_file:
         ),
     output:
         "results/stratification-sets/{genome_build}/{subdir}/{prefix}.bed{suffix}",
+    threads: config_resources["default"]["threads"]
+    resources:
+        slurm_partition=rc.select_partition(
+            config_resources["default"]["partition"], config_resources["partitions"]
+        ),
+        mem_mb=config_resources["default"]["memory"],
     shell:
         "cp {input} {output}"
 
