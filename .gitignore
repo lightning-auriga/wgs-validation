@@ -63,3 +63,6 @@ __pycache__/
 
 # vim Artifacts
 *.swp
+
+# slurm artifacts
+slurm*out
